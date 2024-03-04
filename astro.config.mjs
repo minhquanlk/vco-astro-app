@@ -8,9 +8,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-    site: `http://localhost:${process.env.PORT}`,
-
-    base: process.env.CI ? '/flowbite-astro-admin-dashboard' : undefined,
+    site: `courses.vcogroup.vn`,
     output: "server",
     adapter: node({
         mode: "middleware"
