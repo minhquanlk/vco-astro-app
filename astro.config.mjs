@@ -6,16 +6,29 @@ import dotenv from 'dotenv';
 dotenv.config();
 import sitemap from "@astrojs/sitemap";
 
+import preact from "@astrojs/preact";
+
 // https://astro.build/config
 export default defineConfig({
-    site: `courses.vcogroup.vn`,
+    site: `http://localhost:${process.env.PORT}`,
+    // site: `https://courses.vcogroup.vn`,
     output: "server",
     adapter: node({
         mode: "middleware"
     }),
-    integrations: [
-        sitemap(),
-        tailwind(),
-        react()
-    ],
+    server: {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "X-Requested-With",
+        }
+    },
+    i18n: {
+        defaultLocale: "vi",
+        locales: ["en", "vi"],
+        routing: {
+            prefixDefaultLocale: false,
+        },
+
+    },
+    integrations: [sitemap(), tailwind(), react(), preact({ include: ['**/preact/*'] })]
 });

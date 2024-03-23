@@ -1,10 +1,11 @@
 ---
 import LayoutStacked from '../../app/LayoutStacked.astro';
-import FormSignIn from '../../modules/FormSignIn.astro';
+import FormSignIn from '../../modules/FormSignIn';
+
 ---
 
-<LayoutStacked>
+<LayoutStacked >
 	<div class="min-h-screen align-middle flex pb-[12vh]">
-		<FormSignIn />
+		<FormSignIn client:load/>
 	</div>
 </LayoutStacked>

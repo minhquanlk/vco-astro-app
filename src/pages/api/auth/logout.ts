@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 
-export const post: APIRoute = async ({cookies}) => {
+export const POST: APIRoute = async ({cookies}) => {
   try {
     // unset cookies
     cookies.delete('token', {
@@ -13,7 +13,10 @@ export const post: APIRoute = async ({cookies}) => {
         message: "You're logged out!",
       }),
       {
-        status: 200,
+        status: 302,
+        headers: {
+          Location: '/authentication/sign-in'
+        }
       }
     );
   } catch (error) {

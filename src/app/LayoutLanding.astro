@@ -1,0 +1,23 @@
+---
+
+import LayoutCommon from './LayoutCommon.astro';
+import NavBarLanding from './NavBarLanding.astro';
+
+---
+
+<LayoutCommon>
+	<NavBarLanding/>
+
+	<div class="flex overflow-hidden bg-zinc-900 bg-opacity-90">
+		<div
+			id="main-content"
+			class="relative w-full h-full overflow-y-auto  min-h-screen"
+		>
+			<div class="px-0">
+				<slot />
+			</div>
+
+			
+		</div>
+	</div>
+</LayoutCommon>

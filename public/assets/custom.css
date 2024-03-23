@@ -1,0 +1,21 @@
+.avd .form-control+span,
+.avd .form-control+span+span {
+    display: none;
+    font-size: 11px;
+    padding-top: 6px;
+}
+
+.avd .form-select+span,
+.avd .form-select+span+span {
+    display: none;
+    font-size: 11px;
+    padding-top: 6px;
+}
+
+.avd .form-control.invalid+span {
+    display: block;
+}
+
+.invalid {
+    color: #ec1c14;
+}

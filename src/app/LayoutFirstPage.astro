@@ -1,0 +1,97 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const { class: clazz } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang} dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+
+
+    <!-- Meta Tags -->
+    <meta name="description" content="VCO GROUP is a company specializing in young talents solutions consultancy & delivery for enterprises and education. VCO GROUP is proud of being a crucial part of partners' success and globalization">
+    <meta name="keywords" content="career, recruitment, recruitment marketing, talents, education, talent program, consulting, training, event, workshop, communication, agency, fresher program, internship, sales">
+    <meta name="author" content="VCOGROUP">
+
+    <!-- Viewport Meta-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Template Favicon & Icons Start -->
+    <link rel="icon" href="/img/logo/vco-logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/img/logo/vco-logo.png">
+    <link rel="shortcut icon" href="/img/logo/vco-logo.png" type="image/x-icon" />
+    <!-- Template Favicon & Icons End -->
+
+    <!-- Facebook Metadata Start -->
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:title" content="VCOGROUP">
+    <meta property="og:description" content="VCO GROUP is a company specializing in young talents solutions consultancy & delivery for enterprises and education. VCO GROUP is proud of being a crucial part of partners' success and globalization">
+    <!-- Facebook Metadata End -->
+
+    <!-- Template Styles Start -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins-demo.css">
+    <link rel="stylesheet" type="text/css" href="/assets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/main-demo.css">
+
+    <!-- Template Styles End -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <!-- Custom Browser Color Start -->
+    <meta name="theme-color" content="#ec1c14">
+    <meta name="msapplication-navbutton-color" content="#ededed">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ededed">
+    <!-- Page Title -->
+    <title>VCO GROUP - Your Trusted Partner for Business Solutions </title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RS6312RHY5"></script>
+    <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RS6312RHY5');
+    </script>
+    <script is:inline>
+        if (
+            localStorage.getItem('color-theme') === 'dark' ||
+            (!('color-theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <!-- Custom Browser Color End -->
+</head>
+	<body
+		class:list={[
+			//
+			clazz,
+			'bg-zinc-50 dark:bg-black',
+			'scrollbar scrollbar-w-3 scrollbar-thumb-rounded-[0.25rem]',
+			'scrollbar-track-slate-200  scrollbar-thumb-gray-400',
+			'dark:scrollbar-track-gray-900 dark:scrollbar-thumb-gray-700',
+		]}
+	>
+		<slot />
+	</body>
+</html>
+
+<script>
+	import 'flowbite';
+	import 'flowbite/dist/datepicker.js';
+</script>
+
+<style is:global>
+	@import url('https://fonts.cdnfonts.com/css/inter');
+</style>

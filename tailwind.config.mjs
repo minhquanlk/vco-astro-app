@@ -79,6 +79,23 @@ module.exports = {
                 kanban: '28rem',
             },
         },
+        screens: {
+            'sm': '640px',
+            // => @media (min-width: 640px) { ... }
+
+            'md': '768px',
+            // => @media (min-width: 768px) { ... }
+
+            'lg': '1024px',
+            // => @media (min-width: 1024px) { ... }
+
+            'xl': '1280px',
+            // => @media (min-width: 1280px) { ... }
+
+            '2xl': '1536px',
+            // => @media (min-width: 1536px) { ... }
+            'msm': { 'max': '639px' },
+        }
     },
 
     safelist: [
@@ -106,7 +123,26 @@ module.exports = {
         // For Astro one
         'grid',
     ],
-
+    spacing: {
+        4.5: '18px',
+    },
+    typography: ({ theme }) => ({
+        DEFAULT: {
+            css: {
+                '--tw-prose-invert-headings': theme('colors.white.dark'),
+                '--tw-prose-invert-links': theme('colors.white.dark'),
+                h1: { fontSize: '40px', marginBottom: '0.5rem', marginTop: 0 },
+                h2: { fontSize: '32px', marginBottom: '0.5rem', marginTop: 0 },
+                h3: { fontSize: '28px', marginBottom: '0.5rem', marginTop: 0 },
+                h4: { fontSize: '24px', marginBottom: '0.5rem', marginTop: 0 },
+                h5: { fontSize: '20px', marginBottom: '0.5rem', marginTop: 0 },
+                h6: { fontSize: '16px', marginBottom: '0.5rem', marginTop: 0 },
+                p: { marginBottom: '0.5rem' },
+                li: { margin: 0 },
+                img: { margin: 0 },
+            },
+        },
+    }),
     plugins: [
         //
         require('flowbite/plugin'),

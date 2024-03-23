@@ -5,14 +5,16 @@ import { url } from '../lib/data.js';
 import { SITE_TITLE } from './constants.js';
 
 const { class: clazz } = Astro.props;
+const cookie = Astro.request.headers.get('cookie');
+
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{SITE_TITLE} — v{pkg.version}</title>
+		<title>{SITE_TITLE}</title>
 
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={pkg.description} />
@@ -26,10 +28,18 @@ const { class: clazz } = Astro.props;
 
 		<meta
 			name="author"
-			content="Julian Cataldo, Zoltán Szőgyényi, Robert Tanislav"
+			content="Andy MinQ & Astro's Team"
 		/>
 		<meta name="copyright" content="MIT" />
-
+		<!-- Google Tag Manager -->
+		<script is:inline>
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-W92BHBV');
+		</script>
+	<!-- End Google Tag Manager -->
 		<script is:inline>
 			if (
 				localStorage.getItem('color-theme') === 'dark' ||
@@ -41,12 +51,13 @@ const { class: clazz } = Astro.props;
 				document.documentElement.classList.remove('dark');
 			}
 		</script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
 	</head>
 	<body
 		class:list={[
 			//
 			clazz,
-			'bg-gray-50 dark:bg-gray-800',
+			'bg-zinc-50 dark:bg-zinc-800',
 			'scrollbar scrollbar-w-3 scrollbar-thumb-rounded-[0.25rem]',
 			'scrollbar-track-slate-200  scrollbar-thumb-gray-400',
 			'dark:scrollbar-track-gray-900 dark:scrollbar-thumb-gray-700',
